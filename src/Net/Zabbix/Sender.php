@@ -93,15 +93,15 @@ class Sender {
     {
         $input = array("host"=>$hostname,"value"=>$value,"key"=>$key);
         if( isset($clock) ){
-            $input{"clock"} = $clock;
+            $input["clock"] = $clock;
         }
-        array_push($this->_data{"data"},$input);
+        array_push($this->_data["data"],$input);
         return $this;
     }
     
     function getDataArray()
     {
-        return $this->_data{"data"};
+        return $this->_data["data"];
     }
 
     private function _buildSendData(){
@@ -291,13 +291,13 @@ class Sender {
                 throw new SenderProtocolException('invalid json data in receive data'); 
             }
             $this->_lastResponseArray   = $responseArray;
-            $this->_lastResponseInfo    = $responseArray{'info'}; 
+            $this->_lastResponseInfo    = $responseArray['info']; 
             $parsedInfo                 = $this->_parseResponseInfo($this->_lastResponseInfo); 
-            $this->_lastProcessed       = $parsedInfo{'processed'};
-            $this->_lastFailed          = $parsedInfo{'failed'};
-            $this->_lastSpent           = $parsedInfo{'spent'};
-            $this->_lastTotal           = $parsedInfo{'total'};
-            if($responseArray{'response'} == "success"){
+            $this->_lastProcessed       = $parsedInfo['processed'];
+            $this->_lastFailed          = $parsedInfo['failed'];
+            $this->_lastSpent           = $parsedInfo['spent'];
+            $this->_lastTotal           = $parsedInfo['total'];
+            if($responseArray['response'] == "success"){
                 $this->initData();
                 return true;
             }else{

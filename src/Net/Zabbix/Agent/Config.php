@@ -23,7 +23,7 @@ class Config
         $return_value = null;
         if( array_key_exists('Server',$this->_config_array) )
         {
-            $return_value = $this->_config_array{'Server'}; 
+            $return_value = $this->_config_array['Server']; 
         }
         return $return_value;
     }
@@ -31,9 +31,9 @@ class Config
     function getServerPort(){
         $return_value = null;
         if( array_key_exists('ServerPort',$this->_config_array)
-            and is_numeric($this->_config_array{'ServerPort'}) )
+            and is_numeric($this->_config_array['ServerPort']) )
         {
-            $return_value = intval($this->_config_array{'ServerPort'}); 
+            $return_value = intval($this->_config_array['ServerPort']); 
         }
         return $return_value;
     }
@@ -52,7 +52,7 @@ class Config
                 list($key,$value) = explode("=",$line,2);
                 $key = trim($key);
                 $value = trim($value);
-                $config_array{$key} = $value; 
+                $config_array[$key] = $value; 
             }
         }
         return $config_array;
